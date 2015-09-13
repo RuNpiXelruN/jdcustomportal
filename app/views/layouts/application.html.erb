@@ -7,8 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class='container'>
+    <div class="navbar-header">
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <i class="fa fa-users"></i>
+        Social Playground Portal
+      <% end %>
+    </div>
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+      <div class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
+        <% else %>
+          <%= link_to "Log In", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
+          <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success navbar-btn', method: :get %>
+        <% end %>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
 
-<%= yield %>
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissable">
+      <button type="button" class ="close" data-dismiss="alert" aria-label="Close"><span aria-hidden = "true">&times;</span></button>
+      <%= value %>
+    </div>
+<% end %>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
