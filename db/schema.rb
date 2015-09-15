@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913114132) do
+ActiveRecord::Schema.define(version: 20150915111931) do
 
   create_table "payola_affiliates", force: :cascade do |t|
     t.string   "code"
@@ -110,6 +110,15 @@ ActiveRecord::Schema.define(version: 20150913114132) do
   end
 
   add_index "payola_subscriptions", ["guid"], name: "index_payola_subscriptions_on_guid"
+
+  create_table "subscription_plans", force: :cascade do |t|
+    t.integer  "amount"
+    t.string   "interval"
+    t.string   "stripe_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
