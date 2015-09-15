@@ -27,6 +27,9 @@ gem 'devise', '3.5.2'
 
 gem 'bootstrap-sass', '3.3.5'
 
+gem 'payola-payments'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
