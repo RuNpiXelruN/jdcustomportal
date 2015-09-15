@@ -1,4 +1,7 @@
 Payola.configure do |config|
+  config.secret_key = "sk_test_bCKoKAs1o2jciSJ6Egi4i5tr"
+  config.publishable_key = "pk_test_q8xRzIcHxx2NXmAhb2yxKxv5"
+  config.background_worker = :active_job
   # Example subscription:
   # 
   # config.subscribe 'payola.package.sale.finished' do |sale|

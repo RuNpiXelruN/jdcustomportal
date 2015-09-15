@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915111931) do
+ActiveRecord::Schema.define(version: 20150915112153) do
 
   create_table "payola_affiliates", force: :cascade do |t|
     t.string   "code"
@@ -116,6 +116,11 @@ ActiveRecord::Schema.define(version: 20150915111931) do
     t.string   "interval"
     t.string   "stripe_id"
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
